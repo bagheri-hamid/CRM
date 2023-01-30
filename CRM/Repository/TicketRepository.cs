@@ -14,5 +14,31 @@ namespace CRM.Repository
         {
             return FindAll().ToList();
         }
+
+        public Ticket GetTicketById(int ticketId)
+        {
+            return FindByCondition(t => t.Id.Equals(ticketId)).FirstOrDefault();
+        }
+
+        public IEnumerable<Ticket> GetTicketsReport(DateTime startDate, DateTime endDate)
+        {
+            return  FindAll()
+                    .Where(t => t.RegisterDate >= startDate && t.RegisterDate <= endDate)
+                    .ToList();
+        }
+
+        public void CreateTicket(Ticket ticket) {
+            Create(ticket);
+        }
+
+        public IEnumerable<Ticket> GetCustomerTickets(int id)
+        {
+            return FindAll().Where(ticket => ticket.CustomerId == id.ToString());
+        }
+
+        public void UpdateTicket(Ticket ticket)
+        {
+            Update(ticket);
+        }
     }
 }

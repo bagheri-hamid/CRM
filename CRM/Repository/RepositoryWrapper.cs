@@ -7,6 +7,9 @@ public class RepositoryWrapper : IRepositoryWrapper
 {
     private CrmContext _repoContext;
     private ITicketRepository _ticket;
+    private ICustomerRepository _customer;
+    private IUserRepository _user;
+    private INoteRepository _note;
 
     public ITicketRepository Ticket
     {
@@ -20,7 +23,43 @@ public class RepositoryWrapper : IRepositoryWrapper
             return _ticket;
         }
     }
+    public ICustomerRepository Customer
+    {
+        get
+        {
+            if (_customer == null)
+            {
+                _customer = new CustomerRepository(_repoContext);
+            }
 
+            return _customer;
+        }
+    }
+
+    public IUserRepository User
+    {
+        get
+        {
+            if (_user == null)
+            {
+                _user = new UserRepository(_repoContext);
+            }
+
+            return _user;
+        }
+    }    
+    public INoteRepository Note
+    {
+        get
+        {
+            if (_note == null)
+            {
+                _note = new NoteRepository(_repoContext);
+            }
+
+            return _note;
+        }
+    }
 
     public RepositoryWrapper(CrmContext crmContext)
     {

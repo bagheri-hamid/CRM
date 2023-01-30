@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace CRM.Model;
 
@@ -20,4 +21,13 @@ public partial class Ticket
     public DateTime? RegisterDate { get; set; }
 
     public DateTime? FinishedDate { get; set; }
+
+    public Ticket(string subject, string customerId, string description)
+    {
+        Subject = subject;
+        CustomerId = customerId;
+        Status = 1;
+        Description = description;
+        RegisterDate = DateTime.Now ;
+    }
 }

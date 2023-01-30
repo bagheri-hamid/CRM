@@ -24,4 +24,6 @@ public partial class CrmContext : DbContext
     public virtual DbSet<TicketStatus> TicketStatuses { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<Note> Notes { get; set; }
 }
