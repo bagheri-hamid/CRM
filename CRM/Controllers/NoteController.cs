@@ -1,6 +1,6 @@
-﻿using CRM.Interfaces;
-using CRM.Dtos;
+﻿using CRM.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using CRM.Application.Services.Abstracts;
 
 namespace CRM.Controllers;
 
@@ -28,6 +28,7 @@ public class NotesController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
     [HttpGet("getTicketNotes")]
     public IActionResult GetTicketNotes([FromQuery] int ticketId)
     {
@@ -41,6 +42,7 @@ public class NotesController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
     [HttpPost]
     public IActionResult CreateNote([FromBody] NoteDto noteDto)
     {
@@ -56,6 +58,7 @@ public class NotesController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
     [HttpPut("ChangeNote")]
     public IActionResult ChangeNote([FromQuery] int noteId , string content)
     {

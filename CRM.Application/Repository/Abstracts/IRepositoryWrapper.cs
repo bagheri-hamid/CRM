@@ -1,4 +1,4 @@
-﻿namespace CRM.Interfaces;
+﻿namespace CRM.Application.Repository.Abstracts;
 
 public interface IRepositoryWrapper
 {

@@ -1,7 +1,8 @@
-using CRM.Interfaces;
-using CRM.Model;
-using CRM.Repository;
-using CRM.Services;
+using CRM.Application.Repository;
+using CRM.Application.Repository.Abstracts;
+using CRM.Application.Repository.Concretes;
+using CRM.Application.Services.Abstracts;
+using CRM.Application.Services.Concretes;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

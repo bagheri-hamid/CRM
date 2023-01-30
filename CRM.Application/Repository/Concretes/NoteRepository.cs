@@ -1,7 +1,7 @@
-﻿using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
+using CRM.Core.Entities;
 
-namespace CRM.Repository
+namespace CRM.Application.Repository.Concretes
 {
     public class NoteRepository : RepositoryBase<Note>, INoteRepository
     {
@@ -20,7 +20,8 @@ namespace CRM.Repository
             return FindByCondition(n => n.Id.Equals(id)).FirstOrDefault();
         }
 
-        public void CreateNote(Note note) {
+        public void CreateNote(Note note)
+        {
             Create(note);
         }
 

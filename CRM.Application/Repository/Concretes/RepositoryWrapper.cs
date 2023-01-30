@@ -1,7 +1,6 @@
-﻿using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
 
-namespace CRM.Repository;
+namespace CRM.Application.Repository.Concretes;
 
 public class RepositoryWrapper : IRepositoryWrapper
 {
@@ -47,7 +46,7 @@ public class RepositoryWrapper : IRepositoryWrapper
 
             return _user;
         }
-    }    
+    }
     public INoteRepository Note
     {
         get

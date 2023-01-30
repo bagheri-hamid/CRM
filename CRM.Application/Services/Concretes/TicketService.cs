@@ -1,9 +1,9 @@
-﻿using CRM.Dtos;
-using CRM.Interfaces;
-using CRM.Model;
-using System.Data;
+﻿using CRM.Application.Repository.Abstracts;
+using CRM.Application.Services.Abstracts;
+using CRM.Core.Entities;
+using CRM.Dtos;
 
-namespace CRM.Services;
+namespace CRM.Application.Services.Concretes;
 
 public class TicketService : ITicketService
 {
@@ -38,7 +38,7 @@ public class TicketService : ITicketService
         return _repo.Ticket.GetCustomerTickets(id);
     }
 
-    public int AssignTicket(int teamMemberId , int ticketId)
+    public int AssignTicket(int teamMemberId, int ticketId)
     {
         var teamMember = _repo.User.GetUserById(teamMemberId);
         if (teamMember is null)
@@ -47,7 +47,7 @@ public class TicketService : ITicketService
         if (ticket is null)
             return 2;
 
-        ticket.TeamMemberId= teamMemberId;
+        ticket.TeamMemberId = teamMemberId;
         ticket.Status = 2;
         _repo.Ticket.UpdateTicket(ticket);
         _repo.Save();
@@ -63,7 +63,7 @@ public class TicketService : ITicketService
         _repo.Ticket.UpdateTicket(ticket);
         _repo.Save();
         return 0;
-    }    
+    }
     public int ReopenTicket(int ticketId)
     {
         var ticket = _repo.Ticket.GetTicketById(ticketId);
@@ -76,7 +76,7 @@ public class TicketService : ITicketService
         _repo.Ticket.UpdateTicket(ticket);
         _repo.Save();
         return 0;
-    }    
+    }
     public int ResolveTicket(int ticketId)
     {
         var ticket = _repo.Ticket.GetTicketById(ticketId);

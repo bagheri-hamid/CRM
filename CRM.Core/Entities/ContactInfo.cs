@@ -1,4 +1,4 @@
-﻿namespace CRM.Model;
+﻿namespace CRM.Core.Entities;
 
 public partial class ContactInfo
 {

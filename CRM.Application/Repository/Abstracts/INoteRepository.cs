@@ -1,7 +1,7 @@
-﻿using CRM.Model;
+﻿using CRM.Core.Entities;
 
 
-namespace CRM.Interfaces;
+namespace CRM.Application.Repository.Abstracts;
 
 public interface INoteRepository : IRepositoryBase<Note>
 {

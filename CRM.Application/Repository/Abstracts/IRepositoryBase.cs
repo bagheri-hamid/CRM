@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace CRM.Interfaces;
+namespace CRM.Application.Repository.Abstracts;
 
 public interface IRepositoryBase<T>
 {

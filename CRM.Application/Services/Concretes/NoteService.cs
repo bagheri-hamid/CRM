@@ -1,9 +1,10 @@
-﻿using CRM.Dtos;
-using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
+using CRM.Application.Services.Abstracts;
+using CRM.Core.Entities;
+using CRM.Dtos;
 using System.Data;
 
-namespace CRM.Services;
+namespace CRM.Application.Services.Concretes;
 
 
 public class NoteService : INoteService
@@ -26,7 +27,7 @@ public class NoteService : INoteService
         {
             return 1;
         }
-        var note = new Note(noteDto.TicketId , noteDto.Content);
+        var note = new Note(noteDto.TicketId, noteDto.Content);
         _repo.Note.CreateNote(note);
         _repo.Save();
         return 0;

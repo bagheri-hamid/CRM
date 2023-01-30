@@ -1,7 +1,7 @@
-﻿using CRM.Model;
-using CRM.Dtos;
+﻿using CRM.Dtos;
+using CRM.Core.Entities;
 
-namespace CRM.Interfaces;
+namespace CRM.Application.Services.Abstracts;
 
 public interface ITicketService
 {

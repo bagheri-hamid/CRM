@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using CRM.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace CRM.Model;
+namespace CRM.Application.Repository;
 
 public partial class CrmContext : DbContext
 {

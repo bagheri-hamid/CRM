@@ -1,9 +1,8 @@
-﻿using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace CRM.Repository;
+namespace CRM.Application.Repository.Concretes;
 
 public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
 {

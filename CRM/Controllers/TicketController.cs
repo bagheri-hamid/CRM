@@ -1,6 +1,6 @@
-﻿using CRM.Interfaces;
-using CRM.Dtos;
+﻿using CRM.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using CRM.Application.Services.Abstracts;
 
 namespace CRM.Controllers;
 
@@ -28,6 +28,7 @@ public class TicketController : ControllerBase
             return BadRequest(e.Message);
         }
     }
+
     [HttpGet("getCustomerTickets")]
     public IActionResult GetCustomerTickets([FromQuery] int id)
     {
@@ -40,9 +41,10 @@ public class TicketController : ControllerBase
         {
             return StatusCode(500, ex.Message);
         }
-    }    
+    }
+
     [HttpGet("getTicketsReport")]
-    public IActionResult GetTicketsReport([FromQuery] DateTime startDate , DateTime endDate)
+    public IActionResult GetTicketsReport([FromQuery] DateTime startDate, DateTime endDate)
     {
         try
         {
@@ -54,6 +56,7 @@ public class TicketController : ControllerBase
             return StatusCode(500, ex.Message);
         }
     }
+
     [HttpPost]
     public IActionResult CreateTicket([FromBody] TicketDto ticketDto)
     {
@@ -69,12 +72,13 @@ public class TicketController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
     [HttpPut("assginTicket")]
-    public IActionResult AssignTicket([FromQuery] int teamMemberId , int ticketId)
+    public IActionResult AssignTicket([FromQuery] int teamMemberId, int ticketId)
     {
         try
         {
-            var code = _ticketService.AssignTicket(teamMemberId,ticketId);
+            var code = _ticketService.AssignTicket(teamMemberId, ticketId);
             if (code == 1)
                 return BadRequest("TeamMemberId not found");
             else if (code == 2)
@@ -86,8 +90,9 @@ public class TicketController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
     [HttpPut("closeTicket")]
-    public IActionResult CloseTicket([FromQuery]int ticketId)
+    public IActionResult CloseTicket([FromQuery] int ticketId)
     {
         try
         {
@@ -101,6 +106,7 @@ public class TicketController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+
     [HttpPut("reopenTicket")]
     public IActionResult ReopenTicket([FromQuery] int ticketId)
     {
@@ -117,7 +123,8 @@ public class TicketController : ControllerBase
         {
             return StatusCode(500, e.Message);
         }
-    }    
+    }
+
     [HttpPut("resolveTicket")]
     public IActionResult ResolveTicket([FromQuery] int ticketId)
     {

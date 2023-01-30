@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-
-namespace CRM.Model;
+﻿namespace CRM.Core.Entities;
 
 public partial class Ticket
 {

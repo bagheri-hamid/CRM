@@ -1,7 +1,7 @@
-﻿using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
+using CRM.Core.Entities;
 
-namespace CRM.Repository
+namespace CRM.Application.Repository.Concretes
 {
     public class TicketRepository : RepositoryBase<Ticket>, ITicketRepository
     {
@@ -22,12 +22,13 @@ namespace CRM.Repository
 
         public IEnumerable<Ticket> GetTicketsReport(DateTime startDate, DateTime endDate)
         {
-            return  FindAll()
+            return FindAll()
                     .Where(t => t.RegisterDate >= startDate && t.RegisterDate <= endDate)
                     .ToList();
         }
 
-        public void CreateTicket(Ticket ticket) {
+        public void CreateTicket(Ticket ticket)
+        {
             Create(ticket);
         }
 

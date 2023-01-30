@@ -1,7 +1,7 @@
-﻿using CRM.Interfaces;
-using CRM.Model;
+﻿using CRM.Application.Repository.Abstracts;
+using CRM.Core.Entities;
 
-namespace CRM.Repository
+namespace CRM.Application.Repository.Concretes
 {
     public class UserRepository : RepositoryBase<User>, IUserRepository
     {
