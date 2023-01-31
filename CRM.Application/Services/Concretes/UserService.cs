@@ -38,12 +38,8 @@ public class UserService : IUserService
         }
         else
         {
-            _repo.User.Create(new User
-            {
-                Username = user.Username,
-                FullName = user.FullName,
-                Role = user.Role,
-            });
+            User userEntity = UserFactory.GetUser(user.Username, user.FullName, user.Role);
+            _repo.User.Create(userEntity);
             _repo.Save();
             return 0;
         }
@@ -58,13 +54,8 @@ public class UserService : IUserService
         }
         else
         {
-            _repo.User.Update(new User
-            {
-                Id = user.Id,
-                Username = user.Username,
-                FullName = updateUser.FullName,
-                Role = updateUser.Role,
-            });
+            User updatedUser = UserFactory.GetUser(user.Id , user.Username, updateUser.FullName, updateUser.Role);
+            _repo.User.Update(updatedUser);
             _repo.Save();
             return 0;
         }

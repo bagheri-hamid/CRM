@@ -10,5 +10,21 @@ public partial class User
 
     public int? ContactInfo { get; set; }
 
-    public int? Role { get; set; }
+    public int Role { get; set; }
+
+    public User(string username, string fullname , int role)
+    {
+        Username = username;
+        FullName = fullname;
+        Role = role;
+    }
+    public User(int id, string username, string fullname, int role)
+    {
+        Id = id;
+        Username = username;
+        FullName = fullname;
+        Role = role;
+    }
+
+    public User() { }
 }
