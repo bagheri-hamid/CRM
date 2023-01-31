@@ -1,4 +1,5 @@
 ﻿using CRM.Application.Repository.Abstracts;
+using CRM.Core.Entities;
 
 namespace CRM.Application.Repository.Concretes;
 
@@ -9,6 +10,7 @@ public class RepositoryWrapper : IRepositoryWrapper
     private ICustomerRepository _customer;
     private IUserRepository _user;
     private INoteRepository _note;
+    private INotificationRepository _notification;
 
     public ITicketRepository Ticket
     {
@@ -59,7 +61,18 @@ public class RepositoryWrapper : IRepositoryWrapper
             return _note;
         }
     }
+    public INotificationRepository Notification
+    {
+        get
+        {
+            if (_notification == null)
+            {
+                _notification = new NotificationRepository(_repoContext);
+            }
 
+            return _notification;
+        }
+    }
     public RepositoryWrapper(CrmContext crmContext)
     {
         _repoContext = crmContext;

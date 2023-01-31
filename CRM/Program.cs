@@ -14,6 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITicketService, TicketService>();
 builder.Services.AddScoped<INoteService, NoteService>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 builder.Services.AddDbContext<CrmContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

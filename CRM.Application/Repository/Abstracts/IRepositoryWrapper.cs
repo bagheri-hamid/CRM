@@ -6,5 +6,6 @@ public interface IRepositoryWrapper
     ICustomerRepository Customer { get; }
     IUserRepository User { get; }
     INoteRepository Note { get; }
+    INotificationRepository Notification { get; }
     void Save();
 }
